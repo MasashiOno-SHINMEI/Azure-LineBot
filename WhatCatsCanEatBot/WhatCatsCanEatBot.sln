@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EchoWithCounterBot", "WhatCatsCanEatBot\EchoWithCounterBot.csproj", "{CBC27A0E-7607-4433-A918-EA5F3F89F162}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBC27A0E-7607-4433-A918-EA5F3F89F162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBC27A0E-7607-4433-A918-EA5F3F89F162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBC27A0E-7607-4433-A918-EA5F3F89F162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBC27A0E-7607-4433-A918-EA5F3F89F162}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {818D6CD2-1BEC-4275-9E9A-74E64AF788D5}
+	EndGlobalSection
+EndGlobal
