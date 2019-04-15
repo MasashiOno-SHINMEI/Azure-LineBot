@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
+ï»¿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
-//ƒ‰ƒCƒuƒ‰ƒŠ[’Ç‰Á
+// Adding libraries
 using System;
 using System.Net.Http;
 using System.Text;
@@ -16,6 +16,7 @@ namespace Microsoft.Bot.Builder.EchoBot
 {
     public class EchoBot : ActivityHandler
     {
+        // Add Translator Text API configuration
         private readonly string translatorEndpoint = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=ja";
         private readonly string translatorSubscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
@@ -23,12 +24,11 @@ namespace Microsoft.Bot.Builder.EchoBot
         {
             //await turnContext.SendActivityAsync(MessageFactory.Text($"Echo: {turnContext.Activity.Text}"), cancellationToken);
 
-            /// ƒ†[ƒU[“ü—Í‚ğ–|–ó‚µ‚Ä•Ô‚·
-            // ƒ†[ƒU[“ü—Í‚Ìæ“¾
+            // Get user response
             var body = new object[] { new { Text = turnContext.Activity.Text } };
             var requestBody = JsonConvert.SerializeObject(body);
 
-            // Translator Text API ‚Ì—˜—p
+            // Make web request to Translator Text API
             using (var client = new HttpClient())
             using (var request = new HttpRequestMessage())
             {
@@ -38,15 +38,16 @@ namespace Microsoft.Bot.Builder.EchoBot
                 request.Headers.Add("Ocp-Apim-Subscription-Key", translatorSubscriptionKey);
                 var response = await client.SendAsync(request);
 
-                // Œ‹‰Ê‚Ìæ“¾‚ÆƒfƒVƒŠƒAƒ‰ƒCƒY
+                // Get API result and return answer
                 var jsonResponse = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<List<TranslatorResult>>(jsonResponse);
 
-                // •Ô“š‚ÉƒZƒbƒg
-                var responseMessage =
-                    $"u{result[0].translations[0].text}v‚Á‚ÄŒ¾‚Á‚½‚ËB" +
-                    $"(ŒŸoŒ¾Œê: {result[0].detectedLanguage.language})";
-                await turnContext.SendActivityAsync(responseMessage);
+                var responseMessage = MessageFactory.Text(
+                    $"ã€Œ{result[0].translations[0].text}ã€ã£ã¦è¨€ã£ãŸã­ã€‚" +
+                    $"(æ¤œå‡ºè¨€èª: {result[0].detectedLanguage.language})"
+                );
+
+                await turnContext.SendActivityAsync(responseMessage, cancellationToken);
             }
         }
 
@@ -56,12 +57,12 @@ namespace Microsoft.Bot.Builder.EchoBot
             {
                 if (member.Id != turnContext.Activity.Recipient.Id)
                 {
-                    await turnContext.SendActivityAsync(MessageFactory.Text($"Welcome to Echo Bot."), cancellationToken);
+                    await turnContext.SendActivityAsync(MessageFactory.Text($"å¤–å›½èªãƒãƒ§ãƒƒãƒˆãƒ¯ã‚«ãƒ« Bot ã ã‚ˆï¼"), cancellationToken);
                 }
             }
         }
 
-        // Translator API ƒNƒ‰ƒX(JSON ƒfƒVƒŠƒAƒ‰ƒCƒY—p)
+        // Class for Translator Text API result JSON
         public class TranslatorResult
         {
             public Detectedlanguage detectedLanguage { get; set; }

@@ -1,3 +1,12 @@
+# TranslatorLineBot (C#, Bot Framework v4.3.2 as of Apr 15, 2019)
+
+[Azure Bot Service で翻訳チャットボット作成](https://qiita.com/annie/items/f8c5964bce2d15c26253) によるサンプルコードです。
+
+Bots > EcoBot.cs に記載されている YOUR_SUBSCRIPTION_KEY にご自分の Tramslator Text API Key を入力してください。
+[Translator Text のサブスクリプション申込方法 & API Key 取得方法](https://qiita.com/annie/items/f8c5964bce2d15c26253#211-translator-text-api-%E3%81%AE%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90)
+
+以下、こちらのサンプルコードの元になる EchoBot テンプレートの前提事項、準備をご確認いただき、ご利用ください。
+
 # EchoBot
 Bot Framework v4 echo bot sample.
 
