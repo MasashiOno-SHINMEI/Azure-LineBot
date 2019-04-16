@@ -5,7 +5,7 @@ const { ActivityHandler } = require('botbuilder');
 const { QnAMaker } = require('botbuilder-ai');
 
 const qnaEndpoint = {
-    knowledgeBaseId: 'YOUR_KBID',
+    knowledgeBaseId: 'YOUR_KNOWLEDGEBASE_ID',
     endpointKey: 'YOUR_ENDPOINTKEY',
     host: 'https://YOUR_SERVER.azurewebsites.net/qnamaker'
 };
