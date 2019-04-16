@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "8281bf5039b80fc02b09041e1d34cf4848995d0b"
+    "signature": "4c726db5b3cc21e60d1e6f48d43e6c5b8379d72a"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "Microsoft.AspNetCore": "2.1.6",
           "Microsoft.AspNetCore.All": "2.1.1",
+          "Microsoft.Bot.Builder.AI.QnA": "4.3.2",
           "Microsoft.Bot.Builder.Integration.AspNet.Core": "4.3.2",
           "Microsoft.NETCore.App": "2.1.0"
         },
@@ -207,6 +208,22 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Bot.Builder.dll": {}
+        }
+      },
+      "Microsoft.Bot.Builder.AI.QnA/4.3.2": {
+        "dependencies": {
+          "Microsoft.Bot.Builder": "4.3.2",
+          "Microsoft.Bot.Configuration": "4.3.2",
+          "SourceLink.Create.CommandLine": "2.8.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Bot.Builder.AI.QnA.dll": {
+            "assemblyVersion": "4.3.2.0",
+            "fileVersion": "4.3.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Bot.Builder.AI.QnA.dll": {}
         }
       },
       "Microsoft.Bot.Builder.Integration.AspNet.Core/4.3.2": {
@@ -3989,6 +4006,13 @@
       "sha512": "sha512-x2wJdrcWqTsRYujzghUOrPBGx8BWKSE/gBlpwfXds09PO4BcDUxZW6Vw+eFCziCwtl3tyurV/6A4AaBh8Ocz0Q==",
       "path": "microsoft.bot.builder/4.3.2",
       "hashPath": "microsoft.bot.builder.4.3.2.nupkg.sha512"
+    },
+    "Microsoft.Bot.Builder.AI.QnA/4.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lZsE59FOci4u2e7uLVE4Menv6vT806oEsWnPcpLwuC3+THjJZmY/aVkESQEsfoLB7FyxGeuPum/a04GP5cuEgQ==",
+      "path": "microsoft.bot.builder.ai.qna/4.3.2",
+      "hashPath": "microsoft.bot.builder.ai.qna.4.3.2.nupkg.sha512"
     },
     "Microsoft.Bot.Builder.Integration.AspNet.Core/4.3.2": {
       "type": "package",

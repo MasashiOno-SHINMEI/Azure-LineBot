@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
-//ÉâÉCÉuÉâÉäÅ[í«â¡
+// Adding libraries
 using Microsoft.Bot.Builder.AI.QnA;
 using Microsoft.Bot.Configuration;
 
@@ -14,22 +14,31 @@ namespace Microsoft.Bot.Builder.EchoBot
 {
     public class EchoBot : ActivityHandler
     {
-        // QnAMaker ÇÃê›íË
-        private readonly QnAMakerService qnaService = new QnAMakerService()
+        // QnAMaker settings
+        private static readonly QnAMakerService QnaService = new QnAMakerService()
         {
             Hostname = "https://YOUR_SERVER.azurewebsites.net/qnamaker",
-            EndpointKey = "YOUR_ENDPOINTKEY",
-            KbId = "YOUR_KBID",
+            EndpointKey = "YOUR_ENDPOINT_KEY",
+            KbId = "YOUR_KNOWLEDGEBASE_ID",
         };
+        private static readonly QnAMaker QnaClient = new QnAMaker(QnaService);
+
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
         {
             //await turnContext.SendActivityAsync(MessageFactory.Text($"Echo: {turnContext.Activity.Text}"), cancellationToken);
-            // QnAMaker Ç≈âÒìöÇéÊìæÇ∑ÇÈ
-            var qnaClient = new QnAMaker(qnaService);
-            var qnaResult = await qnaClient.GetAnswersAsync(turnContext);
-            // éÊìæÇµÇΩâÒìöÇÉZÉbÉg
-            var responseMessage = $"{qnaResult[0].Answer}";
-            await turnContext.SendActivityAsync(responseMessage);
+            // Get answer from QnAMaker
+            var qnaResult = await QnaClient.GetAnswersAsync(turnContext);
+            if (qnaResult.Length > 0)
+            {
+                // Set answer from QnA Maker
+                var responseMessage = MessageFactory.Text($"{qnaResult[0].Answer}");
+                await turnContext.SendActivityAsync(responseMessage, cancellationToken);
+            }
+            else
+            {
+                // If no answer from QnAMaker
+                await turnContext.SendActivityAsync(MessageFactory.Text($"„Ç¥„É°„É≥„Éä„Çµ„Ç§„ÄÅÂàÜ„Åã„Çä„Åæ„Åõ„Çì„Åß„Åó„Åü„ÄÇ‰ªñ„ÅÆÈ£ü„ÅπÁâ©„ÇíË©¶„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ"));
+            }
         }
 
         protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
@@ -38,7 +47,7 @@ namespace Microsoft.Bot.Builder.EchoBot
             {
                 if (member.Id != turnContext.Activity.Recipient.Id)
                 {
-                    await turnContext.SendActivityAsync(MessageFactory.Text($"Ç±ÇÒÇ…ÇøÇÕÅI"), cancellationToken);
+                    await turnContext.SendActivityAsync(MessageFactory.Text($"„Åì„Çì„Å´„Å°„ÅØÔºÅ„Åì„ÇåÈ£ü„Åπ„Çå„Çã„Éã„É£„É≥ÔºüBot „Å†„Çà"), cancellationToken);
                 }
             }
         }

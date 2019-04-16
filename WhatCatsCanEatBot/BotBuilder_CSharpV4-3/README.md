@@ -1,3 +1,12 @@
+# FAQBot (C#, Bot Framework v4.3.2 as of Apr 16, 2019)
+
+[Azure Bot Service × QnAMaker で FAQ (一問一答) チャットボット作成](https://qiita.com/annie/items/7b63e366deeaeae63f94) によるサンプルコードです。
+
+Bots > EcoBot.cs に記載されている YOUR_SERVER, YOUR_ENDPOINT_KEY, YOUR_KNOWLEDGEBASEID にご自分の QnAMaker の設定値を入力してください。
+[QnAMaker による回答エンジンの作成方法](https://qiita.com/annie/items/7b63e366deeaeae63f94#21-cognitive-services-qnamaker-%E3%81%A7-qa-%E5%9B%9E%E7%AD%94%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B)
+
+以下、こちらのサンプルコードの元になる EchoBot テンプレートの前提事項、準備をご確認いただき、ご利用ください。
+
 # EchoBot
 Bot Framework v4 echo bot sample.
 
