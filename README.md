@@ -8,6 +8,8 @@ Azure Bot Service を作成し、ノーコーディングで LINE Messaging API 
 
 Azure Bot Service × Cognitive Services (Translator Text, QnAMaker) によるアプリ作成ハンズオン
 
+- [QnAMaker × Azure Bot Service でノンコーディング AI Chatbot 作成 (2019年4月版)](https://qiita.com/annie/items/1b4a232c2614d05baeda)
+
 - [Azure Bot Service で翻訳チャットボット作成](https://qiita.com/annie/items/f8c5964bce2d15c26253)
   - サンプルコード : C#([v4.3.2](./TranslatorLineBot/BotBuilder_CSharpV4-3) / [v4.2.2](./TranslatorLineBot/BotBuilder_CSharpV4-2)), Node.js([v4.3.2](./TranslatorLineBot/BotBuilder_NodeJsV4-3))
 
